@@ -1,11 +1,11 @@
 # Workload AutoInstaller
-This is a fancy yet simple GUI which can be adapted for a variety of tasks. This was originally designed as a workload/program installer. However, because it essentially just points to and runs batch files to kick off each installation, it can easily be modified to install or run practically anything by changing just a few lines of code. Here's an example of what it can look like:
+This is a fancy yet simple GUI which can be adapted for a variety of tasks. I originally designed this as a workload/program installer. However, because it essentially just points to and runs batch files to kick off each installation, it can easily be modified to install or run practically anything by changing just a few lines of code. Here's an example of what it can look like:
 
 ![Demo Image](/imgs/Demo.png)
 
 ![Checkmark](/imgs/checkMark.png) indicates that option is already installed or has already been run.
 
-You can also set the GUI to time out after a while, and automatically install/run a default set of options.
+You can also set the GUI to time out after a specified amount of time and automatically install/run a default set of options.
 
 
 ## Installation and Setup
@@ -23,5 +23,10 @@ Once you have your workloads ready with addWorkloadOption() calls, you can confi
 
 ## Optional Features
 :mechanical_arm: If starting the program from command line or another script, you may optionally pass an auto-start timeout argument (an integer count, in seconds). If this is given, the program will automatically start the default set of options (typically the 'Balanced' suite, unless you change it), after that many seconds. Any user interaction during this time will cancel the auto-start.
+
+e.g. `"C:\Python310\python.exe" AutoInstaller.py 1800` will automatically start the install after 30 minutes of inactivity.
+
+When this is used, the time remaining until timeout will be displayed at the bottom of the program.
+
 
 :game_die: Having random backgrounds is another optional feature. Simply set `useRandomBackgrounds` near the top of the script to True. You can change which backgrounds may appear by looking for the line after the one that checks that variable, or by searching for `random.choice`.
