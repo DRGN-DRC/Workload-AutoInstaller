@@ -1,9 +1,9 @@
 # Workload AutoInstaller
-This is a fancy yet simple GUI which can be adapted for a variety of tasks. I originally designed this as a workload/program installer. However, because it essentially just points to and runs batch files to kick off each installation, it can easily be modified to install or run practically anything by changing just a few lines of code. Here's an example of what it can look like:
+This is a fancy yet simple GUI which can be adapted for a variety of tasks. I originally designed is as a workload/program installer. However, because it essentially just points to and runs batch files to kick off each installation, it can easily be modified to install or run practically anything by changing just a few lines of code. Here's an example of what it can look like:
 
 ![Demo Image](/imgs/Demo.png)
 
-![Checkmark](/imgs/checkMark.png) indicates that option is already installed or has already been run.
+It also has some nice, subtle animations that play occasionally while the app is idle, and when the mouse hovers over a menu item, the radio buttons, or the OK/Cancel buttons. The checkmarks indicates that option is already installed or has already been run.
 
 You can also set the GUI to time out after a specified amount of time and automatically install/run a default set of options.
 
@@ -14,7 +14,7 @@ You can also set the GUI to time out after a specified amount of time and automa
 To hook this up to your own batch files, go to the init method of the AutoInstallerChooser class, and look for calls to `self.addWorkloadOption` within it. You can change these to point to whatever you like. The arguments for addWorkloadOption are as follows:
 
 - **Workload name**; the name to appear in the GUI
-- **Install or Run Time**; how long the option is expected to take to install or run, in seconds.
+- **Installation/Run Time**; how long the option is expected to take to install or run, in seconds.
 - **Target script path**; the script to run for this particular option. These are run in series when the user clicks "Install". The path specified here should be relative to the directory where the main AutoInstaller.py script is located.
 - **Installation-check path**; a file or folder that the program can check for in order to determine whether the workload is installed or whether the target script has already been run. If the file or folder exists, the program assumes the answer is yes, and the option will appear with a checkmark next to it in the GUI. The path specified here should be relative to the directory where the main AutoInstaller.py script is located.
 - **Tooltip (optional)**; text to appear after a moment while the user hovers their mouse over an option.
